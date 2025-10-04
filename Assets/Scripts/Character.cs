@@ -1,20 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CharacterScript : MonoBehaviour
+public class Character : MonoBehaviour
 {
     [Header("Pop-up Animation Settings")]
     [SerializeField]
     [Tooltip("Vertical offset to move the character down initially")]
-    private float offset = 100f;
+    private float offset = 2f;
 
     [SerializeField]
     [Tooltip("Duration of the pop-up animation in seconds")]
     private float duration = 0.5f;
 
     [SerializeField]
-    [Tooltip("UI Image component for transparency animation")]
-    private Image uiImage;
+    [Tooltip("Sprite Renderer component for transparency animation")]
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField]
     [Tooltip("Audio source for playing spawn sound effect")]
@@ -27,6 +26,12 @@ public class CharacterScript : MonoBehaviour
 
     void Start()
     {
+        // Get SpriteRenderer if not assigned
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
         // Store the original position
         originalPosition = transform.position;
         
@@ -34,12 +39,12 @@ public class CharacterScript : MonoBehaviour
         startPosition = originalPosition - new Vector3(0, offset, 0);
         transform.position = startPosition;
 
-        // Set initial transparency to 0 if UI Image is assigned
-        if (uiImage != null)
+        // Set initial transparency to 0 if Sprite Renderer is assigned
+        if (spriteRenderer != null)
         {
-            Color color = uiImage.color;
+            Color color = spriteRenderer.color;
             color.a = 0f;
-            uiImage.color = color;
+            spriteRenderer.color = color;
         }
 
         // Play spawn sound effect
@@ -63,11 +68,11 @@ public class CharacterScript : MonoBehaviour
             transform.position = Vector3.Lerp(startPosition, originalPosition, t);
 
             // Lerp transparency from 0 to 1
-            if (uiImage != null)
+            if (spriteRenderer != null)
             {
-                Color color = uiImage.color;
+                Color color = spriteRenderer.color;
                 color.a = Mathf.Lerp(0f, 1f, t);
-                uiImage.color = color;
+                spriteRenderer.color = color;
             }
 
             // Stop animating when duration is reached
@@ -77,11 +82,11 @@ public class CharacterScript : MonoBehaviour
                 
                 // Ensure final position and transparency are exact
                 transform.position = originalPosition;
-                if (uiImage != null)
+                if (spriteRenderer != null)
                 {
-                    Color color = uiImage.color;
+                    Color color = spriteRenderer.color;
                     color.a = 1f;
-                    uiImage.color = color;
+                    spriteRenderer.color = color;
                 }
             }
         }

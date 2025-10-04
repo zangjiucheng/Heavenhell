@@ -21,6 +21,11 @@ public class Profile
     [Tooltip("Reason for death")]
     private string deathReason;
 
+    [Header("Visual")]
+    [SerializeField]
+    [Tooltip("Character portrait image")]
+    private Sprite characterImage;
+
     [Header("Evil Deeds")]
     [SerializeField]
     [Tooltip("First evil thing they did")]
@@ -39,17 +44,19 @@ public class Profile
     public string DateOfBirth => dateOfBirth;
     public string DateOfDeath => dateOfDeath;
     public string DeathReason => deathReason;
+    public Sprite CharacterImage => characterImage;
     public string EvilThing1 => evilThing1;
     public string EvilThing2 => evilThing2;
     public string EvilThing3 => evilThing3;
 
     // Constructor
-    public Profile(string name, string dob, string dod, string deathReason, string evil1, string evil2, string evil3)
+    public Profile(string name, string dob, string dod, string deathReason, Sprite image, string evil1, string evil2, string evil3)
     {
         characterName = name;
         dateOfBirth = dob;
         dateOfDeath = dod;
         this.deathReason = deathReason;
+        characterImage = image;
         evilThing1 = evil1;
         evilThing2 = evil2;
         evilThing3 = evil3;
@@ -62,6 +69,7 @@ public class Profile
         dateOfBirth = "";
         dateOfDeath = "";
         deathReason = "";
+        characterImage = null;
         evilThing1 = "";
         evilThing2 = "";
         evilThing3 = "";
@@ -82,4 +90,123 @@ public class Profile
                $"Death Reason: {deathReason}\n" +
                $"Evil Deeds:\n1. {evilThing1}\n2. {evilThing2}\n3. {evilThing3}";
     }
+
+    // Load profile from JSON file
+    public static Profile LoadFromJSON(string jsonFilePath)
+    {
+        try
+        {
+            if (System.IO.File.Exists(jsonFilePath))
+            {
+                string jsonContent = System.IO.File.ReadAllText(jsonFilePath);
+                ProfileData data = JsonUtility.FromJson<ProfileData>(jsonContent);
+                
+                Profile profile = new Profile();
+                profile.characterName = data.characterName;
+                profile.dateOfBirth = data.dateOfBirth;
+                profile.dateOfDeath = data.dateOfDeath;
+                profile.deathReason = data.deathReason;
+                profile.evilThing1 = data.evilThing1;
+                profile.evilThing2 = data.evilThing2;
+                profile.evilThing3 = data.evilThing3;
+                
+                // Load sprite if image path is provided
+                if (!string.IsNullOrEmpty(data.imagePath))
+                {
+                    profile.characterImage = Resources.Load<Sprite>(data.imagePath);
+                    if (profile.characterImage == null)
+                    {
+                        Debug.LogWarning($"Could not load sprite from path: {data.imagePath}");
+                    }
+                }
+                
+                Debug.Log($"Profile loaded successfully from {jsonFilePath}");
+                return profile;
+            }
+            else
+            {
+                Debug.LogError($"JSON file not found: {jsonFilePath}");
+                return null;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error loading profile from JSON: {e.Message}");
+            return null;
+        }
+    }
+
+    // Load profile from TextAsset (for files in Resources folder)
+    public static Profile LoadFromTextAsset(TextAsset jsonFile)
+    {
+        try
+        {
+            if (jsonFile == null)
+            {
+                Debug.LogError("TextAsset is null!");
+                return null;
+            }
+
+            ProfileData data = JsonUtility.FromJson<ProfileData>(jsonFile.text);
+            
+            Profile profile = new Profile();
+            profile.characterName = data.characterName;
+            profile.dateOfBirth = data.dateOfBirth;
+            profile.dateOfDeath = data.dateOfDeath;
+            profile.deathReason = data.deathReason;
+            profile.evilThing1 = data.evilThing1;
+            profile.evilThing2 = data.evilThing2;
+            profile.evilThing3 = data.evilThing3;
+            
+            // Load sprite if image path is provided
+            if (!string.IsNullOrEmpty(data.imagePath))
+            {
+                profile.characterImage = Resources.Load<Sprite>(data.imagePath);
+                if (profile.characterImage == null)
+                {
+                    Debug.LogWarning($"Could not load sprite from path: {data.imagePath}");
+                }
+            }
+            
+            Debug.Log($"Profile loaded successfully from TextAsset");
+            return profile;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error loading profile from TextAsset: {e.Message}");
+            return null;
+        }
+    }
+
+    // Export profile to JSON string
+    public string ToJSON()
+    {
+        ProfileData data = new ProfileData
+        {
+            characterName = this.characterName,
+            dateOfBirth = this.dateOfBirth,
+            dateOfDeath = this.dateOfDeath,
+            deathReason = this.deathReason,
+            evilThing1 = this.evilThing1,
+            evilThing2 = this.evilThing2,
+            evilThing3 = this.evilThing3,
+            imagePath = "" // Set manually if needed
+        };
+        
+        return JsonUtility.ToJson(data, true);
+    }
+}
+
+// Helper class for JSON serialization (without Sprite)
+[System.Serializable]
+public class ProfileData
+{
+    public string characterName;
+    public string dateOfBirth;
+    public string dateOfDeath;
+    public string deathReason;
+    public string imagePath; // Path to sprite in Resources folder
+    public string evilThing1;
+    public string evilThing2;
+    public string evilThing3;
 }
