@@ -18,8 +18,8 @@ public class Profile
     private string dateOfDeath;
 
     [SerializeField]
-    [Tooltip("Reason for death")]
-    private string deathReason;
+    [Tooltip("Work / occupation")]
+    private string work;
 
     [Header("Visual")]
     [SerializeField]
@@ -43,19 +43,19 @@ public class Profile
     public string CharacterName => characterName;
     public string DateOfBirth => dateOfBirth;
     public string DateOfDeath => dateOfDeath;
-    public string DeathReason => deathReason;
+    public string Work => work;
     public Sprite CharacterImage => characterImage;
     public string EvilThing1 => evilThing1;
     public string EvilThing2 => evilThing2;
     public string EvilThing3 => evilThing3;
 
     // Constructor
-    public Profile(string name, string dob, string dod, string deathReason, Sprite image, string evil1, string evil2, string evil3)
+    public Profile(string name, string dob, string dod, string work, Sprite image, string evil1, string evil2, string evil3)
     {
         characterName = name;
         dateOfBirth = dob;
         dateOfDeath = dod;
-        this.deathReason = deathReason;
+        this.work = work;
         characterImage = image;
         evilThing1 = evil1;
         evilThing2 = evil2;
@@ -68,7 +68,7 @@ public class Profile
         characterName = "";
         dateOfBirth = "";
         dateOfDeath = "";
-        deathReason = "";
+        work = "";
         characterImage = null;
         evilThing1 = "";
         evilThing2 = "";
@@ -87,7 +87,7 @@ public class Profile
         return $"Name: {characterName}\n" +
                $"DOB: {dateOfBirth}\n" +
                $"DOD: {dateOfDeath}\n" +
-               $"Death Reason: {deathReason}\n" +
+               $"Work: {work}\n" +
                $"Evil Deeds:\n1. {evilThing1}\n2. {evilThing2}\n3. {evilThing3}";
     }
 
@@ -105,7 +105,7 @@ public class Profile
                 profile.characterName = data.characterName;
                 profile.dateOfBirth = data.dateOfBirth;
                 profile.dateOfDeath = data.dateOfDeath;
-                profile.deathReason = data.deathReason;
+                profile.work = data.work;
                 profile.evilThing1 = data.evilThing1;
                 profile.evilThing2 = data.evilThing2;
                 profile.evilThing3 = data.evilThing3;
@@ -153,7 +153,7 @@ public class Profile
             profile.characterName = data.characterName;
             profile.dateOfBirth = data.dateOfBirth;
             profile.dateOfDeath = data.dateOfDeath;
-            profile.deathReason = data.deathReason;
+                profile.work = data.work;
             profile.evilThing1 = data.evilThing1;
             profile.evilThing2 = data.evilThing2;
             profile.evilThing3 = data.evilThing3;
@@ -186,7 +186,7 @@ public class Profile
             characterName = this.characterName,
             dateOfBirth = this.dateOfBirth,
             dateOfDeath = this.dateOfDeath,
-            deathReason = this.deathReason,
+            work = this.work,
             evilThing1 = this.evilThing1,
             evilThing2 = this.evilThing2,
             evilThing3 = this.evilThing3,
@@ -204,7 +204,7 @@ public class ProfileData
     public string characterName;
     public string dateOfBirth;
     public string dateOfDeath;
-    public string deathReason;
+    public string work;
     public string imagePath; // Path to sprite in Resources folder
     public string evilThing1;
     public string evilThing2;

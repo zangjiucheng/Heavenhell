@@ -2,7 +2,7 @@
     "characterName": "John Doe",
     "dateOfBirth": "1950-01-15",
     "dateOfDeath": "2020-12-31",
-    "deathReason": "Natural causes",
+    "work": "Natural causes",
     "imagePath": "Characters/Mark/Mark.normal",
     "evilThing1": "Stole candy from a baby",
     "evilThing2": "Lied to his mother",
