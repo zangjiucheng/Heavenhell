@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Linq;
 
 public class CharacterSpawner : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class CharacterSpawner : MonoBehaviour
     [SerializeField] private GameObject[] characterPrefabs;
     [SerializeField] private int nextCharacterIndex = 0;
     [SerializeField] private bool shouldEndGameAfterAllCharacters = false;
+    
+    [Header("Shuffle Settings")]
+    [Tooltip("Shuffle the order of characters at the start")]
+    [SerializeField] private bool shuffleCharactersAtStart = true;
     
     [Header("End Game Settings")]
     [Tooltip("Scene to load when all characters are spawned")]
@@ -22,11 +28,23 @@ public class CharacterSpawner : MonoBehaviour
     // Private variables
     private float checkTimer = 0f;
     private bool hasEndedGame = false;
+    private int cyclesCount = 0;
+    private List<GameObject> characterList = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Initialize the character list
+        if (shuffleCharactersAtStart)
+        {
+            // Populate with random order
+            characterList = characterPrefabs.OrderBy(x => Random.value).ToList();
+        }
+        else
+        {
+            // Populate in original order
+            characterList = new List<GameObject>(characterPrefabs);
+        }
     }
 
     // Update is called once per frame
@@ -42,21 +60,21 @@ public class CharacterSpawner : MonoBehaviour
         {
             checkTimer = 0.25f;
             // Check if there are any characters in the scene (named "Character")
-            if (GameObject.Find("Character") == null && characterPrefabs.Length > 0)
+            if (GameObject.Find("Character") == null && characterList.Count > 0)
             {
-                // Check if we should end the game after all characters
-                if (shouldEndGameAfterAllCharacters && nextCharacterIndex >= characterPrefabs.Length - 1 && !hasEndedGame)
-                {
-                    hasEndedGame = true;
-                    EndGame();
-                    return;
-                }
-                
-                nextCharacterIndex = nextCharacterIndex % characterPrefabs.Length;
-
-                Instantiate(characterPrefabs[nextCharacterIndex]);
+                Instantiate(characterList[nextCharacterIndex % characterList.Count]);
             
-                nextCharacterIndex = (nextCharacterIndex + 1) % characterPrefabs.Length;
+                nextCharacterIndex++;
+                if (nextCharacterIndex > characterList.Count)
+                {
+                    nextCharacterIndex = 0;
+                    cyclesCount++;
+                    if (shouldEndGameAfterAllCharacters)
+                    {
+                        EndGame();
+                        hasEndedGame = true;
+                    }
+                }
             }
         }
     }

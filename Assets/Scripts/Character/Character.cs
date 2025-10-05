@@ -425,7 +425,7 @@ public class Character : MonoBehaviour
         disposer.speed = 2.5f;
         
         // Check where this character should be sent
-        bool shouldGoToHell = profileData != null && !profileData.FinalDecision;
+        bool shouldGoToHell = profileData != null && profileData.FinalDecision;
         if (!shouldGoToHell)
         {
             return;
@@ -451,7 +451,7 @@ public class Character : MonoBehaviour
         disposer.speed = 2f;
         
         // Check where this character should be sent
-        bool shouldGoToHeaven = profileData != null && profileData.FinalDecision;
+        bool shouldGoToHeaven = profileData != null && !profileData.FinalDecision;
         if (!shouldGoToHeaven)
         {
             return;
