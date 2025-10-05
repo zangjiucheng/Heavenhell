@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/Character/ReportFiller.cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/Character/ReportFiller.cs" />
+              <option name="originalContent" value="using UnityEngine;&#10;&#10;&#10;&#10;&#10;public class ReportFiller : MonoBehaviour&#10;{&#10;    [Header(&quot;Character Reference&quot;)]&#10;    [SerializeField]&#10;    [Tooltip(&quot;Character component to read profile data from&quot;)]&#10;    private Character character;&#10;    &#10;    // Start is called once before the first execution of Update after the MonoBehaviour is created&#10;    void Start()&#10;    {&#10;        &#10;    }&#10;&#10;    // Update is called once per frame&#10;    void Update()&#10;    {&#10;        &#10;    }&#10;}&#10;" />
+              <option name="updatedContent" value="using UnityEngine;&#10;&#10;&#10;&#10;&#10;public class ReportFiller : MonoBehaviour&#10;{&#10;    [Header(&quot;Character Reference&quot;)]&#10;    [SerializeField]&#10;    [Tooltip(&quot;Character component to read profile data from&quot;)]&#10;    private Character character;&#10;    &#10;    // Start is called once before the first execution of Update after the MonoBehaviour is created&#10;    void Start()&#10;    {&#10;        &#10;    }&#10;&#10;    // Update is called once per frame&#10;    void Update()&#10;    {&#10;        &#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

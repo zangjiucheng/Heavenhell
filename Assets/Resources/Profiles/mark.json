@@ -1,10 +1,23 @@
 {
-    "characterName": "John Doe",
-    "dateOfBirth": "1950-01-15",
-    "dateOfDeath": "2020-12-31",
-    "work": "Natural causes",
-    "imagePath": "Characters/Mark/Mark.normal",
-    "evilThing1": "Stole candy from a baby",
-    "evilThing2": "Lied to his mother",
-    "evilThing3": "Parked in a handicap spot"
+    "Name": "Mark",
+    "DOB": "2003.4.26",
+    "DOD": "2025.10.4",
+    "Work": "High school student",
+    "Introduction": "Bobby was young, famous, and loved singing. He was an idol to many people, but the quality of his songs deteriorated after he made some bank, leading to massive disappointment from his fans.",
+    "EvilList": [
+        {
+            "title": "Dating and cheating on three women simultaneously.",
+            "explain": "I just hope I can be someone girls can rely on."
+        },
+        {
+            "title": "Got multiple girls pregnant, then disappeared.",
+            "explain": "I told them I don't like children, but they didn't listen to me. Do those kids still count as mine?"
+        },
+        {
+            "title": "Bullying classmates.",
+            "explain": "Come on, those were just jokes..."
+        }
+    ],
+    "DeathReason": "Murdered by one of the ex-girlfriends.",
+    "FinalDecision": true
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class CharacterAppear : MonoBehaviour
 {
     [Header("Pop-up Animation Settings")]
     [SerializeField]
