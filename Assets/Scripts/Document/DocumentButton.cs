@@ -55,7 +55,7 @@ public class DocumentButton : MonoBehaviour
             if (characterObj != null)
             {
                 var obj = Instantiate(prefabToSpawn);
-                obj.transform.position = new Vector3(6, 0, 0);
+                obj.transform.position = new Vector3(5, 0, 0);
                 var filler = obj.GetComponent<DocumentFiller>();
                 if (filler != null)
                 {

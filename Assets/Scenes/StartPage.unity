@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -342,12 +342,12 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1051080507
@@ -409,8 +409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -227}
-  m_SizeDelta: {x: 460.28, y: 165.78}
+  m_AnchoredPosition: {x: 0.0000076294, y: -119.7}
+  m_SizeDelta: {x: 236.5, y: 85.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488956506
 MonoBehaviour:
@@ -739,7 +739,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 967f737b40db74227a5a37a685b61a98, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9442c14bf6d114af49a95fcb0bab3be7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -920,6 +920,7 @@ GameObject:
   - component: {fileID: 1446575316}
   - component: {fileID: 1446575315}
   - component: {fileID: 1446575317}
+  - component: {fileID: 1446575318}
   m_Layer: 31
   m_Name: Background
   m_TagString: Untagged
@@ -1009,6 +1010,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a010e9fad1c24167aac97018c4f010b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1446575318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446575314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a7e3e957a9455685af41d2f09b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minShakeIntensity: 0.05
+  maxShakeIntensity: 0.45
+  shakeDuration: 0.7
+  minTimeBetweenShakes: 1
+  maxTimeBetweenShakes: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
