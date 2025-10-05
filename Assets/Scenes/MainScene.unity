@@ -180,7 +180,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPrefabs:
+  - {fileID: 4526494219386855970, guid: ded631f478f9e49829d7dda211904f4d, type: 3}
   - {fileID: 4526494219386855970, guid: 474c40258efedcf44b7f0e90d6b40fe1, type: 3}
+  - {fileID: 4526494219386855970, guid: 7080987a009ae49d78357ea4c50d58cc, type: 3}
+  - {fileID: 4526494219386855970, guid: aa94e63637dbd4ca989573c39aedcdcd, type: 3}
+  - {fileID: 4526494219386855970, guid: 70faa9407a9fb40b1a5222524d9a244f, type: 3}
+  - {fileID: 4526494219386855970, guid: 27eca4a4789fb4b33a3915ee6fc4e982, type: 3}
+  - {fileID: 4526494219386855970, guid: 883cdb97d54784fa3bf2faec0c435ce6, type: 3}
+  - {fileID: 4526494219386855970, guid: 65a7b91ddc83943059a0e7f1b7037b80, type: 3}
   nextCharacterIndex: 0
 --- !u!4 &464612938
 Transform:

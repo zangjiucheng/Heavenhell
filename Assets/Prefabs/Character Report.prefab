@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   report: {fileID: 5011249117057849431}
-  document: {fileID: 6606632199105350484, guid: 42a0251ea964d402e84b38f768e71d2a, type: 3}
   transitionSpeed: 10
   defaultScaleMultiplier: 0.8
   defaultAlpha: 0.15
@@ -1085,6 +1084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   fieldsContainer: {fileID: 6496846822346404472}
+  avatarImage: {fileID: 2212756101150587323}
   boxCollider: {fileID: 0}
   dialogOpenOffsetX: 5
   lerpSpeed: 10
@@ -1545,7 +1545,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   report: {fileID: 5011249117057849431}
-  document: {fileID: 6606632199105350484, guid: 42a0251ea964d402e84b38f768e71d2a, type: 3}
   transitionSpeed: 10
   defaultScaleMultiplier: 0.8
   defaultAlpha: 0.15

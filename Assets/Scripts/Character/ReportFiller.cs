@@ -11,6 +11,10 @@ public class ReportFiller : MonoBehaviour
     [SerializeField]
     [Tooltip("Container holding all the field objects (optional - will auto-find 'Fields' if not set)")]
     private Transform fieldsContainer;
+    [Header("Avatar/Image Reference")]
+    [SerializeField]
+    [Tooltip("SpriteRenderer for the character's avatar or image")]
+    private SpriteRenderer avatarImage;
 
     [Header("Collider Reference")]
     [SerializeField]
@@ -185,6 +189,7 @@ public class ReportFiller : MonoBehaviour
         if (evilTop1Field == null) Debug.LogWarning("Evil Top 1 field or its TMP_Text component not found!");
         if (evilTop2Field == null) Debug.LogWarning("Evil Top 2 field or its TMP_Text component not found!");
         if (evilTop3Field == null) Debug.LogWarning("Evil Top 3 field or its TMP_Text component not found!");
+        if (avatarImage == null) Debug.LogWarning("Avatar/Image SpriteRenderer not found!");
     }
 
     private void FillReport()
@@ -215,6 +220,22 @@ public class ReportFiller : MonoBehaviour
 
         if (jobField != null)
             jobField.text = profile.Work ?? "Unknown";
+
+        // Fill in the character avatar/image
+        if (avatarImage != null && character != null)
+        {
+            // Get the character's current sprite from their SpriteRenderer
+            var characterSpriteRenderer = character.GetComponent<SpriteRenderer>();
+            if (characterSpriteRenderer != null && characterSpriteRenderer.sprite != null)
+            {
+                avatarImage.sprite = characterSpriteRenderer.sprite;
+                Debug.Log($"Avatar image set to character's current sprite: {characterSpriteRenderer.sprite.name}");
+            }
+            else
+            {
+                Debug.LogWarning("Character SpriteRenderer or sprite not found!");
+            }
+        }
 
         // Fill in the evil deeds (top 3)
         if (profile.EvilList != null && profile.EvilList.Length > 0)

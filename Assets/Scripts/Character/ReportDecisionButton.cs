@@ -94,7 +94,7 @@ public class ReportDecisionButton : MonoBehaviour
     private void PerformAction()
     {
         // TODO: Implement button action based on isHeavenMode
-        if (isHeavenMode)
+        if (!isHeavenMode)
         {
             Debug.Log($"[{gameObject.name}] Heaven button clicked!");
             
