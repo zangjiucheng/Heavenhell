@@ -1,0 +1,26 @@
+{
+    "Name": "Nova",
+    "DOB": "2010.5.2",
+    "DOD": "2025.10.4",
+    "Work": "Student",
+    "Introduction": "Nova was a very mischievous junior high student, who loved to do strange things for attention. Even though many of her misdemeanors upset her classmates and teachers, she still insisted on doing them.",
+    "EvilList": [
+      {
+        "title": "Attacked birds.",
+        "explain": "I just wanted to take it home."
+      },
+      {
+        "title": "Threw her friend's water bottle in the toilet.",
+        "explain": "It was just a joke."
+      },
+      {
+        "title": "Secretly modified her test score.",
+        "explain": "My mom yells at me if my marks are too low."
+      }
+    ],
+    "DeathReason": "Drowned while swimming.",
+    "FinalDecision": false,
+    "EndingHeaven": "Thank you!",
+    "EndingHall": "Wait, really? This is your final decision?"
+  }
+  

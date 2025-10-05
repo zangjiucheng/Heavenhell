@@ -1,0 +1,26 @@
+{
+    "Name": "Lily",
+    "DOB": "1999.8.22",
+    "DOD": "2025.10.4",
+    "Work": "Solicitor",
+    "Introduction": "Lily grew up good at studying but wasn’t good at building relationships. She joined a law firm after graduating with a law degree. She met someone she liked there, but didn't know how to express it. She lives with internal struggles every day but doesn't know how to release it.",
+    "EvilList": [
+      {
+        "title": "Animal abuse.",
+        "explain": "Those animals were already sick, and I just wanted to end their pain as soon as possible."
+      },
+      {
+        "title": "Murdering a colleague.",
+        "explain": "She got what she deserved, I liked that boy and she still talked to him."
+      },
+      {
+        "title": "Stealing money.",
+        "explain": "I didn't steal it. She lost it."
+      }
+    ],
+    "DeathReason": "Rabies",
+    "FinalDecision": true,
+    "EndingHeaven": "You have made a fair and just decision.",
+    "EndingHall": "What! That’s impossible! I need to talk to your supervisor!"
+  }
+  
