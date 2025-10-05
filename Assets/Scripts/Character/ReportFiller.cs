@@ -112,6 +112,14 @@ public class ReportFiller : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        
+                        // Return character to normal expression when dialog closes
+                        if (character != null)
+                        {
+                            character.SetExpression(Expression.Normal);
+                            Debug.Log("Character returned to normal expression after closing dialog");
+                        }
+                        
                         Debug.Log("Closed all dialogs");
                     }
                     else
@@ -127,13 +135,7 @@ public class ReportFiller : MonoBehaviour
         if (_dialogsTransform != null)
         {
             bool hasDialogChildren = _dialogsTransform.childCount > 0;
-
-            // Debug log when child count changes
-            if (hasDialogChildren)
-            {
-                Debug.Log($"Dialogs has {_dialogsTransform.childCount} children - lerping to offset");
-            }
-
+            
             // Lerp to target position based on dialog state
             Vector3 targetPosition = hasDialogChildren
                 ? _originalPosition + new Vector3(dialogOpenOffsetX, 0, 0)
@@ -221,24 +223,30 @@ public class ReportFiller : MonoBehaviour
             {
                 evilTop1Field.text = profile.EvilList[0]?.title ?? "None";
                 var explanation = profile.EvilList[0]?.explain;
-                evilTop1Field.GetComponent<TopEvilThing>().explanation = 
+                var topEvilComponent = evilTop1Field.GetComponent<TopEvilThing>();
+                topEvilComponent.explanation = 
                     string.IsNullOrEmpty(explanation) ? "Eumm..." : explanation;
+                topEvilComponent.character = character; // Pass character reference
             }
 
             if (evilTop2Field != null && profile.EvilList.Length > 1)
             {
                 evilTop2Field.text = profile.EvilList[1]?.title ?? "None";
                 var explanation = profile.EvilList[1]?.explain;
-                evilTop2Field.GetComponent<TopEvilThing>().explanation = 
+                var topEvilComponent = evilTop2Field.GetComponent<TopEvilThing>();
+                topEvilComponent.explanation = 
                     string.IsNullOrEmpty(explanation) ? "Eumm..." : explanation;
+                topEvilComponent.character = character; // Pass character reference
             }
 
             if (evilTop3Field != null && profile.EvilList.Length > 2)
             {
                 evilTop3Field.text = profile.EvilList[2]?.title ?? "None";
                 var explanation = profile.EvilList[2]?.explain;
-                evilTop3Field.GetComponent<TopEvilThing>().explanation = 
+                var topEvilComponent = evilTop3Field.GetComponent<TopEvilThing>();
+                topEvilComponent.explanation = 
                     string.IsNullOrEmpty(explanation) ? "Eumm..." : explanation;
+                topEvilComponent.character = character; // Pass character reference
             }
         }
         else

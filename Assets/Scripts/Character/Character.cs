@@ -20,6 +20,14 @@ public class CharacterProfileData
     public bool FinalDecision;
 }
 
+public enum Expression
+{
+    Normal,
+    Happy,
+    Sad,
+    Fear
+}
+
 public class Character : MonoBehaviour
 {
     [Header("Character Profile")]
@@ -59,6 +67,23 @@ public class Character : MonoBehaviour
     [Tooltip("Report button prefab to spawn when appear animation is finished")]
     private GameObject reportButtonPrefab;
     
+    [Header("Audio")]
+    [SerializeField]
+    [Tooltip("Audio source component for playing sounds")]
+    private AudioSource audioSource;
+    
+    [SerializeField]
+    [Tooltip("Sad talk sound effects")]
+    private AudioClip[] sadTalkSounds;
+    
+    [SerializeField]
+    [Tooltip("Normal talk sound effects")]
+    private AudioClip[] normalTalkSounds;
+    
+    [SerializeField]
+    [Tooltip("Happy talk sound effects")]
+    private AudioClip[] happyTalkSounds;
+    
     private GameObject reportButtonInstance;
     
     // Public properties to access expressions
@@ -72,6 +97,14 @@ public class Character : MonoBehaviour
     private bool isShowingHappy = false;
     private bool hasSpawnedReportButton = false;
     
+    // Talk animation variables
+    private float talkTimer = 0f;
+    private bool isTalking = false;
+    private float talkBounceDuration = 0.5f;
+    private float talkBounceHeight = 0.025f; // 2.5% height
+    private Vector3 originalScale;
+    private Vector3 originalPosition;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -82,6 +115,10 @@ public class Character : MonoBehaviour
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+        
+        // Store original scale and position for talk animation
+        originalScale = transform.localScale;
+        originalPosition = transform.localPosition;
     }
 
     private void LoadCharacterProfile()
@@ -165,6 +202,38 @@ public class Character : MonoBehaviour
                 SpawnReportButton();
             }
         }
+        
+        // Handle talk bounce animation
+        if (isTalking)
+        {
+            talkTimer += Time.deltaTime;
+            
+            if (talkTimer <= talkBounceDuration)
+            {
+                // Calculate bounce using a sine wave for smooth animation
+                // One complete bounce = one full sine cycle (0 to 2π)
+                float progress = talkTimer / talkBounceDuration;
+                float bounceAmount = Mathf.Sin(progress * Mathf.PI * 2f) * talkBounceHeight;
+                
+                // Apply scale change to y-axis only
+                Vector3 newScale = originalScale;
+                newScale.y = originalScale.y * (1f + bounceAmount);
+                transform.localScale = newScale;
+                
+                // Apply position offset to y-axis (bounce up and down)
+                Vector3 newPosition = originalPosition;
+                newPosition.y = originalPosition.y + (bounceAmount * 2f); // Multiply for more visible movement
+                transform.localPosition = newPosition;
+            }
+            else
+            {
+                // Animation finished, reset to original scale and position
+                transform.localScale = originalScale;
+                transform.localPosition = originalPosition;
+                isTalking = false;
+                talkTimer = 0f;
+            }
+        }
     }
     
     /// <summary>
@@ -185,9 +254,51 @@ public class Character : MonoBehaviour
     /// <param name="expression">The sprite to display</param>
     public void SetExpression(Sprite expression)
     {
-        if (spriteRenderer != null && expression != null)
+        if (spriteRenderer == null)
         {
-            spriteRenderer.sprite = expression;
+            Debug.LogError("SpriteRenderer is not assigned on Character!");
+            return;
+        }
+        
+        if (expression == null)
+        {
+            Debug.LogWarning("Trying to set a null sprite expression!");
+            return;
+        }
+        
+        spriteRenderer.sprite = expression;
+        Debug.Log($"Character expression changed to: {expression.name}");
+    }
+
+    /// <summary>
+    /// Set the character's current expression using the Expression enum
+    /// </summary>
+    /// <param name="expression">The Expression enum value</param>
+    public void SetExpression(Expression expression)
+    {
+        Debug.Log($"Setting expression to: {expression}");
+        
+        switch (expression)
+        {
+            case Expression.Normal:
+                if (normalExpression == null) Debug.LogWarning("Normal expression sprite is not assigned!");
+                SetExpression(normalExpression);
+                break;
+            case Expression.Happy:
+                if (happyExpression == null) Debug.LogWarning("Happy expression sprite is not assigned!");
+                SetExpression(happyExpression);
+                break;
+            case Expression.Sad:
+                if (sadExpression == null) Debug.LogWarning("Sad expression sprite is not assigned!");
+                SetExpression(sadExpression);
+                break;
+            case Expression.Fear:
+                if (fearExpression == null) Debug.LogWarning("Fear expression sprite is not assigned!");
+                SetExpression(fearExpression);
+                break;
+            default:
+                SetExpression(normalExpression);
+                break;
         }
     }
 
@@ -207,5 +318,89 @@ public class Character : MonoBehaviour
     {
         // Spawn the report button when the appear animation is finished
         SpawnReportButton();
+    }
+    
+    /// <summary>
+    /// Trigger a talk animation that bounces the character's y-scale and y-position once
+    /// </summary>
+    /// <param name="bounceDuration">Duration of the bounce animation in seconds (default: 0.5s)</param>
+    /// <param name="bounceHeight">Height of the bounce as a percentage (default: 0.025 = 2.5%)</param>
+    public void Talk(float bounceDuration = 0.5f, float bounceHeight = -0.025f)
+    {
+        talkBounceDuration = bounceDuration;
+        talkBounceHeight = bounceHeight;
+        talkTimer = 0f;
+        isTalking = true;
+        
+        // Store current position as the original position for this animation
+        originalPosition = transform.localPosition;
+        
+        Debug.Log($"Character {profileData?.Name ?? "Unknown"} is talking with bounce animation!");
+    }
+    
+    /// <summary>
+    /// Play a random talk sound effect based on emotion
+    /// </summary>
+    /// <param name="emotion">Emotion type: -1 for sad, 0 for normal, 1 for happy</param>
+    /// <param name="pitch">Pitch of the audio playback (default: 1.0)</param>
+    public void TalkSound(int emotion, float pitch = 1f)
+    {
+        // Get audio source if not assigned
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            
+            if (audioSource == null)
+            {
+                Debug.LogWarning("AudioSource component not found on Character! Cannot play talk sound.");
+                return;
+            }
+        }
+        
+        // Select the appropriate sound array based on emotion
+        AudioClip[] soundArray;
+        string emotionName;
+        
+        switch (emotion)
+        {
+            case -1:
+                soundArray = sadTalkSounds;
+                emotionName = "sad";
+                break;
+            case 0:
+                soundArray = normalTalkSounds;
+                emotionName = "normal";
+                break;
+            case 1:
+                soundArray = happyTalkSounds;
+                emotionName = "happy";
+                break;
+            default:
+                Debug.LogWarning($"Invalid emotion value: {emotion}. Use -1 (sad), 0 (normal), or 1 (happy).");
+                return;
+        }
+        
+        // Check if the array has sounds
+        if (soundArray == null || soundArray.Length == 0)
+        {
+            Debug.LogWarning($"{emotionName} talk sounds array is empty or not assigned!");
+            return;
+        }
+        
+        // Randomly select a sound from the array
+        int randomIndex = Random.Range(0, soundArray.Length);
+        AudioClip selectedClip = soundArray[randomIndex];
+        
+        if (selectedClip == null)
+        {
+            Debug.LogWarning($"Selected audio clip at index {randomIndex} is null!");
+            return;
+        }
+        
+        // Set pitch and play the sound
+        audioSource.pitch = pitch;
+        audioSource.PlayOneShot(selectedClip);
+        
+        Debug.Log($"Playing {emotionName} talk sound: {selectedClip.name} at pitch {pitch}");
     }
 }

@@ -953,6 +953,19 @@ MonoBehaviour:
   sadExpression: {fileID: -4943612818084335763, guid: 2f289c23b23314d959b017459813feb9, type: 3}
   fearExpression: {fileID: 8632148470543002611, guid: 73bf015d543ae49d1b98c161c037d1e3, type: 3}
   reportButtonPrefab: {fileID: 8444316985564014578, guid: 19b5445b354ce40869c1d37e0507577b, type: 3}
+  audioSource: {fileID: 1252434922}
+  sadTalkSounds:
+  - {fileID: 8300000, guid: ee373d93b86b4cc41b93198f092cb260, type: 3}
+  - {fileID: 8300000, guid: b1fbf378cd5ab034d930fdfd07aa8224, type: 3}
+  - {fileID: 8300000, guid: 5ed992ed43e3d9547921692aef417e46, type: 3}
+  normalTalkSounds:
+  - {fileID: 8300000, guid: 2e7ebe05b05c02a4c9d0c26e801fb129, type: 3}
+  - {fileID: 8300000, guid: fba8a1676637eb142b8b5201b7422b29, type: 3}
+  - {fileID: 8300000, guid: edbe4536f865b0940b2a02fc2ff74810, type: 3}
+  happyTalkSounds:
+  - {fileID: 8300000, guid: eaa1966adcf77c644ae9b6f2b409661e, type: 3}
+  - {fileID: 8300000, guid: 8e30d76c763bfaf40af041140ab1bbce, type: 3}
+  - {fileID: 8300000, guid: d7301f8bfe300fc4191941eb3797abdd, type: 3}
 --- !u!114 &1252434927
 MonoBehaviour:
   m_ObjectHideFlags: 0

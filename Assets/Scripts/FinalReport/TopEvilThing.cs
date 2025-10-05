@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Unity.Mathematics.Geometry;
+using Math = System.Math;
 
 public class TopEvilThing : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class TopEvilThing : MonoBehaviour
     private Camera _mainCamera;
 
     [HideInInspector] public string explanation = "null";
+    [HideInInspector] public Character character; // Reference to the character being questioned
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,6 +81,17 @@ public class TopEvilThing : MonoBehaviour
 
     private void OnClicked()
     {
+        // Make the character show fear expression when questioned about evil deeds
+        if (character != null)
+        {
+            character.SetExpression(Expression.Fear);
+            Debug.Log($"Character {character.ProfileData?.Name} is now showing fear expression!");
+        }
+        else
+        {
+            Debug.LogWarning("Character reference not set in TopEvilThing!");
+        }
+
         if (dialogPrefab != null)
         {
             // Get Dialogs object
@@ -91,6 +105,9 @@ public class TopEvilThing : MonoBehaviour
 
             // Spawn the dialog prefab
             GameObject dialog = Instantiate(dialogPrefab, dialogsTransform);
+            // Let character talk
+            character.Talk(0.33f);
+            character.TalkSound((int) Math.Round(-1 + Math.Pow(Random.value, 2)), Random.value * 0.4f + 0.8f);
 
             // Find the "Text" child object
             Transform textTransform = dialog.transform.Find("Text");
