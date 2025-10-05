@@ -750,6 +750,8 @@ GameObject:
   - component: {fileID: 1123865933808573912}
   - component: {fileID: 2215707957195415511}
   - component: {fileID: 2000174074522069316}
+  - component: {fileID: 4345721887728193549}
+  - component: {fileID: 5980671210903030356}
   m_Layer: 0
   m_Name: Evil Top 2
   m_TagString: Untagged
@@ -773,7 +775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1928, y: -0.5088}
+  m_AnchoredPosition: {x: 0.193, y: -0.392}
   m_SizeDelta: {x: 4.0621, y: 0.979}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2215707957195415511
@@ -915,6 +917,65 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2215707957195415511}
   m_maskType: 0
+--- !u!61 &4345721887728193549
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903496437779788335}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.006629944, y: 0.06485227}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.0617657, y: 0.9734325}
+  m_EdgeRadius: 0
+--- !u!114 &5980671210903030356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903496437779788335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cedfa11152804d8eac04b7d3be481a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
 --- !u!1 &5011249117057849431
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +1027,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   fieldsContainer: {fileID: 6496846822346404472}
+  boxCollider: {fileID: 0}
+  parentButton: {fileID: 0}
 --- !u!61 &4313980665816173979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1023,6 +1086,8 @@ GameObject:
   - component: {fileID: 1565058378223116535}
   - component: {fileID: 2770757855295121745}
   - component: {fileID: 1131375678330082934}
+  - component: {fileID: 1517082597984367518}
+  - component: {fileID: 7191883917726556305}
   m_Layer: 0
   m_Name: Evil Top 3
   m_TagString: Untagged
@@ -1188,6 +1253,65 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2770757855295121745}
   m_maskType: 0
+--- !u!61 &1517082597984367518
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818381428914416626}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.004154682, y: 0.0050626993}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.066716, y: 0.7999983}
+  m_EdgeRadius: 0
+--- !u!114 &7191883917726556305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818381428914416626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cedfa11152804d8eac04b7d3be481a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
 --- !u!1 &6738862964138368361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,6 +1619,8 @@ GameObject:
   - component: {fileID: 1087964330252993397}
   - component: {fileID: 1585925167275544753}
   - component: {fileID: 4422017386085750935}
+  - component: {fileID: 5583968007836658663}
+  - component: {fileID: 6676091070722002905}
   m_Layer: 0
   m_Name: Evil Top 1
   m_TagString: Untagged
@@ -1518,7 +1644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2307, y: 0.546}
+  m_AnchoredPosition: {x: 0.2307, y: 0.591}
   m_SizeDelta: {x: 4.1219, y: 0.8495}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1585925167275544753
@@ -1660,6 +1786,65 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1585925167275544753}
   m_maskType: 0
+--- !u!61 &5583968007836658663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153168836032500748}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.01860714, y: 0.072868496}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.145521, y: 0.8099484}
+  m_EdgeRadius: 0
+--- !u!114 &6676091070722002905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153168836032500748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cedfa11152804d8eac04b7d3be481a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
 --- !u!1 &8727815169442446561
 GameObject:
   m_ObjectHideFlags: 0

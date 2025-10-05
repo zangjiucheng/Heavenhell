@@ -18,6 +18,10 @@ public class CharacterAppear : MonoBehaviour
     [SerializeField]
     [Tooltip("Audio source for playing spawn sound effect")]
     private AudioSource audioSource;
+    
+    [SerializeField]
+    [Tooltip("Character component for expression control")]
+    private Character character;
 
     private Vector3 originalPosition;
     private Vector3 startPosition;
@@ -30,6 +34,12 @@ public class CharacterAppear : MonoBehaviour
         if (spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+        
+        // Get Character component if not assigned
+        if (character == null)
+        {
+            character = GetComponent<Character>();
         }
 
         // Store the original position
@@ -51,6 +61,12 @@ public class CharacterAppear : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.Play();
+        }
+        
+        // Start expression timing (happy for 150% of duration, then normal)
+        if (character != null)
+        {
+            character.StartHappyThenNormal(duration);
         }
 
         // Start the pop-up animation
