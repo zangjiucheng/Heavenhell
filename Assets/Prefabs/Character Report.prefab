@@ -976,6 +976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
+  explanation: null
 --- !u!1 &5011249117057849431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1029,8 @@ MonoBehaviour:
   character: {fileID: 0}
   fieldsContainer: {fileID: 6496846822346404472}
   boxCollider: {fileID: 0}
+  dialogOpenOffsetX: 5
+  lerpSpeed: 10
   parentButton: {fileID: 0}
 --- !u!61 &4313980665816173979
 BoxCollider2D:
@@ -1312,6 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
+  explanation: null
 --- !u!1 &6738862964138368361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,8 +1565,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.15
-  m_fontSizeBase: 2.15
+  m_fontSize: 2.48
+  m_fontSizeBase: 2.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1845,6 +1849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
+  explanation: null
 --- !u!1 &8727815169442446561
 GameObject:
   m_ObjectHideFlags: 0

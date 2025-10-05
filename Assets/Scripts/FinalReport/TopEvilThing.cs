@@ -4,87 +4,105 @@ using TMPro;
 public class TopEvilThing : MonoBehaviour
 {
     [SerializeField] private GameObject dialogPrefab;
-    
-    private BoxCollider2D boxCollider;
-    private Vector3 originalScale;
-    private Vector3 targetScale;
-    private bool isHovering = false;
-    private float lerpSpeed = 10f;
-    
-    [HideInInspector]
-    public string explanation = "null";
+
+    private BoxCollider2D _boxCollider;
+    private Vector3 _originalScale;
+    private Vector3 _targetScale;
+    private bool _wasHovering;
+    private float _lerpSpeed = 10f;
+    private Camera _mainCamera;
+
+    [HideInInspector] public string explanation = "null";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Auto get BoxCollider2D component
-        boxCollider = GetComponent<BoxCollider2D>();
-        if (boxCollider == null)
+        _boxCollider = GetComponent<BoxCollider2D>();
+        if (_boxCollider == null)
         {
             Debug.LogWarning("BoxCollider2D not found on " + gameObject.name);
         }
-        
+
         // Store original scale
-        originalScale = transform.localScale;
-        targetScale = originalScale;
+        _originalScale = transform.localScale;
+        _targetScale = _originalScale;
+        _mainCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Lerp towards target scale
-        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * lerpSpeed);
-    }
+        // Check if mouse is over this object using raycast
+        bool isHovering = IsMouseOver();
 
-    void OnMouseEnter()
-    {
-        isHovering = true;
-        // Set target scale to 105%
-        targetScale = originalScale * 1.025f;
-    }
+        // Handle hover enter
+        if (isHovering && !_wasHovering)
+        {
+            _targetScale = _originalScale * 1.025f;
+        }
 
-    void OnMouseExit()
-    {
-        isHovering = false;
-        // Reset to original scale
-        targetScale = originalScale;
-    }
+        // Handle hover exit
+        if (!isHovering && _wasHovering)
+        {
+            _targetScale = _originalScale;
+        }
 
-    void OnMouseDown()
-    {
-        if (isHovering)
+        // Handle click
+        if (isHovering && Input.GetMouseButtonDown(0))
         {
             OnClicked();
         }
+
+        _wasHovering = isHovering;
+
+        // Lerp towards target scale
+        transform.localScale = Vector3.Lerp(transform.localScale, _targetScale, Time.deltaTime * _lerpSpeed);
+    }
+
+    private bool IsMouseOver()
+    {
+        if (_mainCamera == null || _boxCollider == null || !_boxCollider.enabled) return false;
+
+        Vector2 mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero, 0f);
+
+        foreach (var hit in hits)
+        {
+            if (hit.collider == _boxCollider)
+                return true;
+        }
+
+        return false;
     }
 
     private void OnClicked()
     {
-        Debug.Log("OnClicked called! Explanation: " + explanation);
-        
         if (dialogPrefab != null)
         {
             // Get Dialogs object
             Transform dialogsTransform = GameObject.Find("Dialogs")?.transform;
-            
+
+            if (dialogsTransform == null)
+            {
+                Debug.LogWarning("Dialogs object not found!");
+                return;
+            }
+
             // Spawn the dialog prefab
             GameObject dialog = Instantiate(dialogPrefab, dialogsTransform);
-            Debug.Log("Dialog instantiated: " + dialog.name);
-            
+
             // Find the "Text" child object
             Transform textTransform = dialog.transform.Find("Text");
-            Debug.Log("Text transform found: " + (textTransform != null));
-            
+
             if (textTransform != null)
             {
                 // Try TMP_Text (base class for both TextMeshProUGUI and TextMeshPro)
                 TMP_Text textComponent = textTransform.GetComponent<TMP_Text>();
-                Debug.Log("TMP_Text component found: " + (textComponent != null));
-                
+
                 if (textComponent != null)
                 {
                     textComponent.text = explanation;
-                    Debug.Log("Text set to: " + textComponent.text);
                 }
                 else
                 {
@@ -95,14 +113,13 @@ public class TopEvilThing : MonoBehaviour
             {
                 Debug.LogWarning("'Text' child not found in dialogPrefab");
             }
-            
+
             // Find all existing dialog game objects from Dialogs object
             foreach (Transform child in dialogsTransform)
             {
                 if (child.gameObject != dialog)
                 {
                     Destroy(child.gameObject);
-                    Debug.Log("Destroyed old dialog: " + child.gameObject.name);
                 }
             }
         }

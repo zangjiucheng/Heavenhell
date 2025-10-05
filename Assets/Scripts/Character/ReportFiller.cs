@@ -17,6 +17,15 @@ public class ReportFiller : MonoBehaviour
     [Tooltip("BoxCollider2D to detect clicks outside (optional - will auto-find if not set)")]
     private BoxCollider2D boxCollider;
 
+    [Header("Position Lerping")]
+    [SerializeField]
+    [Tooltip("X offset when dialog is open")]
+    private float dialogOpenOffsetX = 5f;
+
+    [SerializeField]
+    [Tooltip("Speed of position lerping")]
+    private float lerpSpeed = 10f;
+
     private TMP_Text nameField;
     private TMP_Text dobField;
     private TMP_Text dodField;
@@ -26,6 +35,9 @@ public class ReportFiller : MonoBehaviour
     private TMP_Text evilTop3Field;
 
     public GameObject parentButton; // Reference to the button that spawned this report
+
+    private Vector3 _originalPosition;
+    private Transform _dialogsTransform;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,6 +68,20 @@ public class ReportFiller : MonoBehaviour
 
         // Fill the report with character data
         FillReport();
+
+        // Store original position for lerping
+        _originalPosition = transform.localPosition;
+        
+        // Cache reference to Dialogs transform
+        GameObject dialogsObject = GameObject.Find("Dialogs");
+        if (dialogsObject != null)
+        {
+            _dialogsTransform = dialogsObject.transform;
+        }
+        else
+        {
+            Debug.LogWarning("Dialogs object not found for position lerping!");
+        }
     }
 
     // Update is called once per frame
@@ -78,9 +104,42 @@ public class ReportFiller : MonoBehaviour
                 // Check if the click is outside the box collider
                 if (!boxCollider.OverlapPoint(mousePosition))
                 {
-                    CloseReport();
+                    // If dialogs exist, close them instead of closing the report
+                    if (_dialogsTransform != null && _dialogsTransform.childCount > 0)
+                    {
+                        // Destroy all dialog children
+                        foreach (Transform child in _dialogsTransform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                        Debug.Log("Closed all dialogs");
+                    }
+                    else
+                    {
+                        // No dialogs open, close the report
+                        CloseReport();
+                    }
                 }
             }
+        }
+
+        // Check if Dialogs node has any children and lerp position accordingly
+        if (_dialogsTransform != null)
+        {
+            bool hasDialogChildren = _dialogsTransform.childCount > 0;
+
+            // Debug log when child count changes
+            if (hasDialogChildren)
+            {
+                Debug.Log($"Dialogs has {_dialogsTransform.childCount} children - lerping to offset");
+            }
+
+            // Lerp to target position based on dialog state
+            Vector3 targetPosition = hasDialogChildren
+                ? _originalPosition + new Vector3(dialogOpenOffsetX, 0, 0)
+                : _originalPosition;
+
+            transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.deltaTime * lerpSpeed);
         }
     }
 
@@ -161,22 +220,25 @@ public class ReportFiller : MonoBehaviour
             if (evilTop1Field != null && profile.EvilList.Length > 0)
             {
                 evilTop1Field.text = profile.EvilList[0]?.title ?? "None";
-                evilTop1Field.GetComponent<TopEvilThing>().explanation =
-                    profile.EvilList[0]?.explain ?? "No explanation available.";
+                var explanation = profile.EvilList[0]?.explain;
+                evilTop1Field.GetComponent<TopEvilThing>().explanation = 
+                    string.IsNullOrEmpty(explanation) ? "Eumm..." : explanation;
             }
 
             if (evilTop2Field != null && profile.EvilList.Length > 1)
             {
                 evilTop2Field.text = profile.EvilList[1]?.title ?? "None";
-                evilTop1Field.GetComponent<TopEvilThing>().explanation =
-                    profile.EvilList[1]?.explain ?? "No explanation available.";
+                var explanation = profile.EvilList[1]?.explain;
+                evilTop2Field.GetComponent<TopEvilThing>().explanation = 
+                    string.IsNullOrEmpty(explanation) ? "Eumm..." : explanation;
             }
 
             if (evilTop3Field != null && profile.EvilList.Length > 2)
             {
                 evilTop3Field.text = profile.EvilList[2]?.title ?? "None";
-                evilTop3Field.GetComponent<TopEvilThing>().explanation =
-                    profile.EvilList[2]?.explain ?? "No explanation available.";
+                var explanation = profile.EvilList[2]?.explain;
+                evilTop3Field.GetComponent<TopEvilThing>().explanation = 
+                    string.IsNullOrEmpty(explanation) ? "Eumm..." : explanation;
             }
         }
         else
