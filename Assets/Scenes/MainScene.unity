@@ -189,6 +189,8 @@ MonoBehaviour:
   - {fileID: 4526494219386855970, guid: 883cdb97d54784fa3bf2faec0c435ce6, type: 3}
   - {fileID: 4526494219386855970, guid: 65a7b91ddc83943059a0e7f1b7037b80, type: 3}
   nextCharacterIndex: 0
+  shouldEndGameAfterAllCharacters: 1
+  endScene: GameOver
 --- !u!4 &464612938
 Transform:
   m_ObjectHideFlags: 0

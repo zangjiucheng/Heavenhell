@@ -423,6 +423,23 @@ public class Character : MonoBehaviour
         disposer.targetPosition = new Vector2(5.0f, 1.2f);
         disposer.moveDuration = 1.5f;
         disposer.speed = 2.5f;
+        
+        // Check where this character should be sent
+        bool shouldGoToHell = profileData != null && !profileData.FinalDecision;
+        if (!shouldGoToHell)
+        {
+            return;
+        }
+        // Update score in Character Spawner
+        var spawner = GameObject.Find("Character Spawner");
+        if (spawner != null)
+        {
+            var spawnerScript = spawner.GetComponent<CharacterSpawner>();
+            if (spawnerScript != null)
+            {
+                spawnerScript.finalScore += 1;
+            }
+        }
     }
     
     public void SendToHeaven()
@@ -432,5 +449,22 @@ public class Character : MonoBehaviour
         disposer.targetPosition = new Vector2(-5.0f, 1.2f);
         disposer.moveDuration = 1.5f;
         disposer.speed = 2f;
+        
+        // Check where this character should be sent
+        bool shouldGoToHeaven = profileData != null && profileData.FinalDecision;
+        if (!shouldGoToHeaven)
+        {
+            return;
+        }
+        // Update score in Character Spawner
+        var spawner = GameObject.Find("Character Spawner");
+        if (spawner != null)
+        {
+            var spawnerScript = spawner.GetComponent<CharacterSpawner>();
+            if (spawnerScript != null)
+            {
+                spawnerScript.finalScore += 1;
+            }
+        }
     }
 }
