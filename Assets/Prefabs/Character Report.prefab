@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5352754424095498899}
   - component: {fileID: 3439604560344804750}
+  - component: {fileID: 176506747311549358}
+  - component: {fileID: 3257251566588341899}
   m_Layer: 0
   m_Name: Heaven
   m_TagString: Untagged
@@ -87,6 +89,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &176506747311549358
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692036475464905597}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 7.3799996
+--- !u!114 &3257251566588341899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692036475464905597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7080e5ff7a5f44ba37254f494243b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  report: {fileID: 5011249117057849431}
+  transitionSpeed: 10
+  defaultScaleMultiplier: 0.8
+  defaultAlpha: 0.15
+  isHeavenMode: 1
 --- !u!1 &2233388438758018779
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +1032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
   explanation: null
+  character: {fileID: 0}
 --- !u!1 &5011249117057849431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,6 +1372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
   explanation: null
+  character: {fileID: 0}
 --- !u!1 &6738862964138368361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1416,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4823678337643956805}
   - component: {fileID: 2961403462793724505}
+  - component: {fileID: 137114867886953420}
+  - component: {fileID: 574945432379723018}
   m_Layer: 0
   m_Name: Hell
   m_TagString: Untagged
@@ -1436,6 +1495,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &137114867886953420
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7371754446169004457}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 7.3799996
+--- !u!114 &574945432379723018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7371754446169004457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7080e5ff7a5f44ba37254f494243b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  report: {fileID: 5011249117057849431}
+  transitionSpeed: 10
+  defaultScaleMultiplier: 0.8
+  defaultAlpha: 0.15
+  isHeavenMode: 0
 --- !u!1 &7723760496901493026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,6 +1962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogPrefab: {fileID: 4072554122589877518, guid: 3b5e7eecd9d4343a7b5836fdd48ca4e4, type: 3}
   explanation: null
+  character: {fileID: 0}
 --- !u!1 &8727815169442446561
 GameObject:
   m_ObjectHideFlags: 0

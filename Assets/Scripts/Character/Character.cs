@@ -35,68 +35,57 @@ public class Character : MonoBehaviour
     [SerializeField]
     [Tooltip("JSON file containing the character profile")]
     private TextAsset characterProfileJson;
-    
+
     private CharacterProfileData profileData;
-    
+
     // Public property to access profile data
     public CharacterProfileData ProfileData => profileData;
-    
-    [Header("Character Expressions")]
-    [SerializeField]
-    [Tooltip("Sprite Renderer component to display expressions")]
+
+    [Header("Character Expressions")] [SerializeField] [Tooltip("Sprite Renderer component to display expressions")]
     private SpriteRenderer spriteRenderer;
-    
-    [SerializeField]
-    [Tooltip("Normal or default expression")]
+
+    [SerializeField] [Tooltip("Normal or default expression")]
     private Sprite normalExpression;
-    
-    [SerializeField]
-    [Tooltip("Happy or positive expression")]
+
+    [SerializeField] [Tooltip("Happy or positive expression")]
     private Sprite happyExpression;
-    
-    [SerializeField]
-    [Tooltip("Sad or negative expression")]
+
+    [SerializeField] [Tooltip("Sad or negative expression")]
     private Sprite sadExpression;
-    
-    [SerializeField]
-    [Tooltip("Fearful or scared expression")]
+
+    [SerializeField] [Tooltip("Fearful or scared expression")]
     private Sprite fearExpression;
-    
+
     [Header("UI Elements")]
     [SerializeField]
     [Tooltip("Report button prefab to spawn when appear animation is finished")]
     private GameObject reportButtonPrefab;
-    
-    [Header("Audio")]
-    [SerializeField]
-    [Tooltip("Audio source component for playing sounds")]
+
+    [Header("Audio")] [SerializeField] [Tooltip("Audio source component for playing sounds")]
     private AudioSource audioSource;
-    
-    [SerializeField]
-    [Tooltip("Sad talk sound effects")]
+
+    [SerializeField] [Tooltip("Sad talk sound effects")]
     private AudioClip[] sadTalkSounds;
-    
-    [SerializeField]
-    [Tooltip("Normal talk sound effects")]
+
+    [SerializeField] [Tooltip("Normal talk sound effects")]
     private AudioClip[] normalTalkSounds;
-    
-    [SerializeField]
-    [Tooltip("Happy talk sound effects")]
+
+    [SerializeField] [Tooltip("Happy talk sound effects")]
     private AudioClip[] happyTalkSounds;
-    
+
     private GameObject reportButtonInstance;
-    
+
     // Public properties to access expressions
     public Sprite NormalExpression => normalExpression;
     public Sprite HappyExpression => happyExpression;
     public Sprite SadExpression => sadExpression;
     public Sprite FearExpression => fearExpression;
-    
+
     private float expressionTimer = 0f;
     private float happyDuration = 0f;
     private bool isShowingHappy = false;
     private bool hasSpawnedReportButton = false;
-    
+
     // Talk animation variables
     private float talkTimer = 0f;
     private bool isTalking = false;
@@ -104,21 +93,24 @@ public class Character : MonoBehaviour
     private float talkBounceHeight = 0.025f; // 2.5% height
     private Vector3 originalScale;
     private Vector3 originalPosition;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LoadCharacterProfile();
-        
+
         // Get SpriteRenderer if not assigned
         if (spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
-        
+
         // Store original scale and position for talk animation
         originalScale = transform.localScale;
         originalPosition = transform.localPosition;
+        
+        // Rename self to "Character"
+        gameObject.name = "Character";
     }
 
     private void LoadCharacterProfile()
@@ -148,19 +140,21 @@ public class Character : MonoBehaviour
         try
         {
             profileData = JsonUtility.FromJson<CharacterProfileData>(characterProfileJson.text);
-            
+
             if (profileData == null)
             {
                 throw new System.Exception("Failed to parse JSON data.");
             }
-            
+
             // Validate that EvilList has exactly 3 items
             if (profileData.EvilList == null || profileData.EvilList.Length != 3)
             {
-                Debug.LogWarning($"EvilList should contain exactly 3 items. Found: {(profileData.EvilList?.Length ?? 0)}");
+                Debug.LogWarning(
+                    $"EvilList should contain exactly 3 items. Found: {(profileData.EvilList?.Length ?? 0)}");
             }
-            
-            Debug.Log($"Successfully loaded profile for {profileData.Name}. Work: {profileData.Work}, Death: {profileData.DeathReason}");
+
+            Debug.Log(
+                $"Successfully loaded profile for {profileData.Name}. Work: {profileData.Work}, Death: {profileData.DeathReason}");
         }
         catch (System.Exception e)
         {
@@ -191,35 +185,35 @@ public class Character : MonoBehaviour
         if (isShowingHappy && happyDuration > 0f)
         {
             expressionTimer += Time.deltaTime;
-            
+
             if (expressionTimer >= happyDuration)
             {
                 // Switch to normal expression
                 SetExpression(normalExpression);
                 isShowingHappy = false;
-                
+
                 // Spawn the report button when the appear animation is finished
                 SpawnReportButton();
             }
         }
-        
+
         // Handle talk bounce animation
         if (isTalking)
         {
             talkTimer += Time.deltaTime;
-            
+
             if (talkTimer <= talkBounceDuration)
             {
                 // Calculate bounce using a sine wave for smooth animation
                 // One complete bounce = one full sine cycle (0 to 2π)
                 float progress = talkTimer / talkBounceDuration;
                 float bounceAmount = Mathf.Sin(progress * Mathf.PI * 2f) * talkBounceHeight;
-                
+
                 // Apply scale change to y-axis only
                 Vector3 newScale = originalScale;
                 newScale.y = originalScale.y * (1f + bounceAmount);
                 transform.localScale = newScale;
-                
+
                 // Apply position offset to y-axis (bounce up and down)
                 Vector3 newPosition = originalPosition;
                 newPosition.y = originalPosition.y + (bounceAmount * 2f); // Multiply for more visible movement
@@ -235,7 +229,7 @@ public class Character : MonoBehaviour
             }
         }
     }
-    
+
     /// <summary>
     /// Start showing happy expression for the first 150% of the appearing duration, then switch to normal
     /// </summary>
@@ -247,7 +241,7 @@ public class Character : MonoBehaviour
         isShowingHappy = true;
         SetExpression(happyExpression);
     }
-    
+
     /// <summary>
     /// Set the character's current expression
     /// </summary>
@@ -259,13 +253,13 @@ public class Character : MonoBehaviour
             Debug.LogError("SpriteRenderer is not assigned on Character!");
             return;
         }
-        
+
         if (expression == null)
         {
             Debug.LogWarning("Trying to set a null sprite expression!");
             return;
         }
-        
+
         spriteRenderer.sprite = expression;
         Debug.Log($"Character expression changed to: {expression.name}");
     }
@@ -277,7 +271,7 @@ public class Character : MonoBehaviour
     public void SetExpression(Expression expression)
     {
         Debug.Log($"Setting expression to: {expression}");
-        
+
         switch (expression)
         {
             case Expression.Normal:
@@ -319,7 +313,7 @@ public class Character : MonoBehaviour
         // Spawn the report button when the appear animation is finished
         SpawnReportButton();
     }
-    
+
     /// <summary>
     /// Trigger a talk animation that bounces the character's y-scale and y-position once
     /// </summary>
@@ -331,13 +325,13 @@ public class Character : MonoBehaviour
         talkBounceHeight = bounceHeight;
         talkTimer = 0f;
         isTalking = true;
-        
+
         // Store current position as the original position for this animation
         originalPosition = transform.localPosition;
-        
+
         Debug.Log($"Character {profileData?.Name ?? "Unknown"} is talking with bounce animation!");
     }
-    
+
     /// <summary>
     /// Play a random talk sound effect based on emotion
     /// </summary>
@@ -349,18 +343,18 @@ public class Character : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
-            
+
             if (audioSource == null)
             {
                 Debug.LogWarning("AudioSource component not found on Character! Cannot play talk sound.");
                 return;
             }
         }
-        
+
         // Select the appropriate sound array based on emotion
         AudioClip[] soundArray;
         string emotionName;
-        
+
         switch (emotion)
         {
             case -1:
@@ -379,28 +373,46 @@ public class Character : MonoBehaviour
                 Debug.LogWarning($"Invalid emotion value: {emotion}. Use -1 (sad), 0 (normal), or 1 (happy).");
                 return;
         }
-        
+
         // Check if the array has sounds
         if (soundArray == null || soundArray.Length == 0)
         {
             Debug.LogWarning($"{emotionName} talk sounds array is empty or not assigned!");
             return;
         }
-        
+
         // Randomly select a sound from the array
         int randomIndex = Random.Range(0, soundArray.Length);
         AudioClip selectedClip = soundArray[randomIndex];
-        
+
         if (selectedClip == null)
         {
             Debug.LogWarning($"Selected audio clip at index {randomIndex} is null!");
             return;
         }
-        
+
         // Set pitch and play the sound
         audioSource.pitch = pitch;
         audioSource.PlayOneShot(selectedClip);
-        
+
         Debug.Log($"Playing {emotionName} talk sound: {selectedClip.name} at pitch {pitch}");
+    }
+
+    public void SendToHell()
+    {
+        // Add Disposer component to character
+        var disposer = gameObject.AddComponent<CharacterDisposer>();
+        disposer.targetPosition = new Vector2(5.0f, 1.2f);
+        disposer.moveDuration = 1.5f;
+        disposer.speed = 2.5f;
+    }
+    
+    public void SendToHeaven()
+    {
+        // Add Disposer component to character
+        var disposer = gameObject.AddComponent<CharacterDisposer>();
+        disposer.targetPosition = new Vector2(-5.0f, 1.2f);
+        disposer.moveDuration = 1.5f;
+        disposer.speed = 2f;
     }
 }

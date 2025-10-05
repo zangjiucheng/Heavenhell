@@ -286,4 +286,12 @@ public class ReportFiller : MonoBehaviour
             }
         }
     }
+
+    public void DisposeReport()
+    {
+        if (parentButton != null)
+        {
+            Destroy(parentButton);
+        }
+    }
 }
