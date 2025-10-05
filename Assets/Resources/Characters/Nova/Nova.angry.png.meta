@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: 4285394889117430997
     second: Nova.angry_0
+  - first:
+      213: -1440990122241177028
+    second: Nova.angry_1
+  - first:
+      213: 1501301062782514261
+    second: Nova.angry_2
+  - first:
+      213: -5243024591072620338
+    second: Nova.angry_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,8 +127,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 971
+        height: 1493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,6 +139,72 @@ TextureImporter:
       bones: []
       spriteID: 5d47e1852f7c87b30800000000000000
       internalID: 4285394889117430997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nova.angry_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 1339
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ac7f65e13900ce0800000000000000
+      internalID: -1440990122241177028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nova.angry_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1339
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5547114cc51b5d410800000000000000
+      internalID: 1501301062782514261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nova.angry_3
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 1339
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec09a74c9e80d37b0800000000000000
+      internalID: -5243024591072620338
       vertices: []
       indices: 
       edges: []
@@ -149,6 +224,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Nova.angry_0: 4285394889117430997
+      Nova.angry_1: -1440990122241177028
+      Nova.angry_2: 1501301062782514261
+      Nova.angry_3: -5243024591072620338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,12 +5,6 @@ TextureImporter:
   - first:
       213: -4181473410885211092
     second: Bobby.normal_0
-  - first:
-      213: -37461664553292165
-    second: Bobby.normal_1
-  - first:
-      213: -9143881186957409399
-    second: Bobby.normal_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,8 +118,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 997
+        height: 1503
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,50 +130,6 @@ TextureImporter:
       bones: []
       spriteID: c2c2272561c68f5c0800000000000000
       internalID: -4181473410885211092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.normal_1
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 1062
-        width: 5
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b7e2b9780d8ea7ff0800000000000000
-      internalID: -37461664553292165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.normal_2
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 73
-        width: 5
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 983c60fb1886a1180800000000000000
-      internalID: -9143881186957409399
       vertices: []
       indices: 
       edges: []
@@ -199,8 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Bobby.normal_0: -4181473410885211092
-      Bobby.normal_1: -37461664553292165
-      Bobby.normal_2: -9143881186957409399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

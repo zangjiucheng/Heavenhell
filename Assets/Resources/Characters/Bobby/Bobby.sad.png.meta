@@ -8,12 +8,6 @@ TextureImporter:
   - first:
       213: -9130770384864921469
     second: Bobby.sad_1
-  - first:
-      213: 6535493010509535954
-    second: Bobby.sad_2
-  - first:
-      213: 3748761212992066195
-    second: Bobby.sad_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,8 +121,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 977
+        height: 1470
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +141,8 @@ TextureImporter:
       name: Bobby.sad_1
       rect:
         serializedVersion: 2
-        x: 187
-        y: 1403
+        x: 170
+        y: 1395
         width: 10
         height: 6
       alignment: 0
@@ -161,50 +155,6 @@ TextureImporter:
       bones: []
       spriteID: 388387c36bcf84180800000000000000
       internalID: -9130770384864921469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.sad_2
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 1050
-        width: 5
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2da187b344cb2ba50800000000000000
-      internalID: 6535493010509535954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.sad_3
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 73
-        width: 5
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 39297202676460430800000000000000
-      internalID: 3748761212992066195
       vertices: []
       indices: 
       edges: []
@@ -225,8 +175,6 @@ TextureImporter:
     nameFileIdTable:
       Bobby.sad_0: -5808514534151160228
       Bobby.sad_1: -9130770384864921469
-      Bobby.sad_2: 6535493010509535954
-      Bobby.sad_3: 3748761212992066195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

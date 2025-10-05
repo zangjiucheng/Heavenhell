@@ -8,12 +8,6 @@ TextureImporter:
   - first:
       213: 640120786399683655
     second: Bobby.fear_1
-  - first:
-      213: 7895095452722692777
-    second: Bobby.fear_2
-  - first:
-      213: -4128464507621814587
-    second: Bobby.fear_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,8 +121,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 976
+        height: 1469
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +141,8 @@ TextureImporter:
       name: Bobby.fear_1
       rect:
         serializedVersion: 2
-        x: 187
-        y: 1402
+        x: 165
+        y: 1393
         width: 7
         height: 7
       alignment: 0
@@ -161,50 +155,6 @@ TextureImporter:
       bones: []
       spriteID: 74462b6b67a22e800800000000000000
       internalID: 640120786399683655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.fear_2
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 1067
-        width: 5
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a28657fb73019d60800000000000000
-      internalID: 7895095452722692777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.fear_3
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 95
-        width: 5
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5cec463676fb4b6c0800000000000000
-      internalID: -4128464507621814587
       vertices: []
       indices: 
       edges: []
@@ -225,8 +175,6 @@ TextureImporter:
     nameFileIdTable:
       Bobby.fear_0: -8805206958783859058
       Bobby.fear_1: 640120786399683655
-      Bobby.fear_2: 7895095452722692777
-      Bobby.fear_3: -4128464507621814587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

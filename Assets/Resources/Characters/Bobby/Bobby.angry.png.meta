@@ -5,12 +5,6 @@ TextureImporter:
   - first:
       213: -8607267181245414836
     second: Bobby.angry_0
-  - first:
-      213: -7350596367260301008
-    second: Bobby.angry_1
-  - first:
-      213: -3646480381304769311
-    second: Bobby.angry_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,8 +118,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 983
+        height: 1468
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,50 +130,6 @@ TextureImporter:
       bones: []
       spriteID: c424df61a18dc8880800000000000000
       internalID: -8607267181245414836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.angry_1
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 1062
-        width: 5
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0394c229c8f6df990800000000000000
-      internalID: -7350596367260301008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobby.angry_2
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 74
-        width: 5
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1e4f5efb969156dc0800000000000000
-      internalID: -3646480381304769311
       vertices: []
       indices: 
       edges: []
@@ -199,8 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Bobby.angry_0: -8607267181245414836
-      Bobby.angry_1: -7350596367260301008
-      Bobby.angry_2: -3646480381304769311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

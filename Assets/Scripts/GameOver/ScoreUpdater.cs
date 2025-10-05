@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -31,7 +32,7 @@ public class ScoreUpdater : MonoBehaviour
         // Update the TextMeshPro text with the score
         if (scoreText != null)
         {
-            string displayText = scorePrefix + finalScore.ToString() + scoreSuffix;
+            string displayText = scorePrefix + Math.Round((finalScore / 8.0 * 100), 1).ToString() + scoreSuffix;
             scoreText.text = displayText;
             Debug.Log($"ScoreUpdater: Updated scoreText to: '{displayText}'");
         }

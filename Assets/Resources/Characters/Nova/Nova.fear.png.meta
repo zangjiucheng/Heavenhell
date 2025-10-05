@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 5617027502987016590
     second: Nova.fear_0
+  - first:
+      213: -5845307270015179278
+    second: Nova.fear_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,8 +121,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 969
+        height: 1491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,6 +133,28 @@ TextureImporter:
       bones: []
       spriteID: e89f321f0c0b3fd40800000000000000
       internalID: 5617027502987016590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nova.fear_1
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 1331
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f5acb7f10c41eea0800000000000000
+      internalID: -5845307270015179278
       vertices: []
       indices: 
       edges: []
@@ -149,6 +174,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Nova.fear_0: 5617027502987016590
+      Nova.fear_1: -5845307270015179278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

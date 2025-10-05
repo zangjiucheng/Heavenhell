@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -8678110549436521382
     second: Nova.happy_0
+  - first:
+      213: 67679637733887435
+    second: Nova.happy_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,8 +121,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 996
+        height: 1498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,6 +133,28 @@ TextureImporter:
       bones: []
       spriteID: a5424431f68219780800000000000000
       internalID: -8678110549436521382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nova.happy_1
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 16
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcdc7ad954270f000800000000000000
+      internalID: 67679637733887435
       vertices: []
       indices: 
       edges: []
@@ -149,6 +174,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Nova.happy_0: -8678110549436521382
+      Nova.happy_1: 67679637733887435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
