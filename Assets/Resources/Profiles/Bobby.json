@@ -1,0 +1,26 @@
+{
+    "Name": "Bobby",
+    "DOB": "1995.12.15",
+    "DOD": "2025.10.5",
+    "Work": "Rapper",
+    "Introduction": "Bobby was young, famous, and loved singing. He was an idol to many people, but the quality of his songs deteriorated after he made some bank, leading to massive disappointment from his fans.",
+    "EvilList": [
+      {
+        "title": "Killed an animal while driving under the influence of alcohol.",
+        "explain": "I'm sorry, but this is really the only time I've ever driven drunk, you know what I'm saying."
+      },
+      {
+        "title": "Insulting journalists.",
+        "explain": "That's because that reporter pushed my fans, you know what I'm saying."
+      },
+      {
+        "title": "Not paying enough taxes.",
+        "explain": "That's a lot of money, and I feel like I already pay a lot in taxes, you know what I'm saying."
+      }
+    ],
+    "DeathReason": "Fell off the stage during a concert and died.",
+    "FinalDecision": false,
+    "EndingHeaven": "YESSSSS! I knew it, baby!",
+    "EndingHall": "Are you kidding me, bro?!!!!!"
+  }
+  

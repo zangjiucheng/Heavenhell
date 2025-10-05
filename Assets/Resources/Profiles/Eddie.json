@@ -1,0 +1,26 @@
+{
+    "Name": "Eddie",
+    "DOB": "2005.1.26",
+    "DOD": "2025.10.4",
+    "Work": "Student",
+    "Introduction": "Eddie was a college student, but his primary goal wasn’t to graduate, but to find a girlfriend. He pursued many girls like crazy, which made him fail most of his courses.",
+    "EvilList": [
+      {
+        "title": "Stalking and sexual harassment against girls.",
+        "explain": "I think she loves me!"
+      },
+      {
+        "title": "Robbery.",
+        "explain": "I'm just borrowing, was gonna give it back when I had the chance."
+      },
+      {
+        "title": "Borrowed a lot of money but never paid it back.",
+        "explain": "They gave it to me voluntarily."
+      }
+    ],
+    "DeathReason": "Choked to death while eating at a buffet.",
+    "FinalDecision": true,
+    "EndingHeaven": "I hope there will be buffets every day in heaven.",
+    "EndingHall": "What?! Never appear in front of me again!"
+  }
+  

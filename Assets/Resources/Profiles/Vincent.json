@@ -1,0 +1,25 @@
+{
+  "Name": "Vincent",
+  "DOB": "1985.3.26",
+  "DOD": "2025.10.4",
+  "Work": "Painter",
+  "Introduction": "Vincent was an ambitious painter who became a travelling artist after graduating from art school at a young age. He thought he would make a name for himself after that, but the cruelty of life kept him from achieving his dream. It took marrying a rich lady to make ends meet.",
+  "EvilList": [
+    {
+      "title": "Using his wife's property to pay other women.",
+      "explain": "That’s because my wife had an affair first!"
+    },
+    {
+      "title": "Alcohol addiction and domestic violence.",
+      "explain": "She said some really hurtful things and I couldn’t hold back."
+    },
+    {
+      "title": "Plagiarising someone else’s art.",
+      "explain": "I just drew it for inspiration."
+    }
+  ],
+  "DeathReason": "Alcohol overdose.",
+  "FinalDecision": true,
+  "EndingHeaven": "I will draw you a portrait to thank you.",
+  "EndingHall": "No, please change your decision!"
+}

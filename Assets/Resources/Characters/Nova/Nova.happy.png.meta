@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 29859a6bab2744e44875caa67659f3ba
+guid: f1632e4886de04ad9abea14531b836bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7872722273471896646
-    second: Desk_0
+      213: -8678110549436521382
+    second: Nova.happy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Desk_0
+      name: Nova.happy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1800
-        height: 1011
+        width: 1024
+        height: 1536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 64c199d3237814d60800000000000000
-      internalID: 7872722273471896646
+      spriteID: a5424431f68219780800000000000000
+      internalID: -8678110549436521382
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Desk_0: 7872722273471896646
+      Nova.happy_0: -8678110549436521382
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

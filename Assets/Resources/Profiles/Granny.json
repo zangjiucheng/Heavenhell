@@ -1,0 +1,26 @@
+{
+    "Name": "Granny",
+    "DOB": "1937.9.3",
+    "DOD": "2025.10.5",
+    "Work": "Banker",
+    "Introduction": "Granny chose mathematics as her major when she was young, and got a job at a bank after graduation; however, spending time to take care of her family robbed her of any chances at a promotion.",
+    "EvilList": [
+      {
+        "title": "Fired the co-op student who stepped on her toes.",
+        "explain": "In truth, that kid was terrible at the job."
+      },
+      {
+        "title": "Forced her son to break up with his first love.",
+        "explain": "That girl is terrible. I will never agree to this relationship."
+      },
+      {
+        "title": "Smashed a cup when she was arguing with her husband.",
+        "explain": "He really pissed me off that time, but I still love him…"
+      }
+    ],
+    "DeathReason": "Heart attack",
+    "FinalDecision": false,
+    "EndingHeaven": "You are such a lovely kid.",
+    "EndingHall": "How could you do this to me!"
+  }
+  

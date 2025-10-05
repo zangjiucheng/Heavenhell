@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4ef2fca3c57584d4289ac2df1ca474e9
+guid: 52888539136f54a18b25d486839a4332
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5866281921551675546
-    second: Stamp_0
+      213: -2477296529633458538
+    second: Eddie.sad_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stamp_0
+      name: Eddie.sad_0
       rect:
         serializedVersion: 2
-        x: 290
-        y: 422
-        width: 1476
-        height: 1264
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a903266a358396150800000000000000
-      internalID: 5866281921551675546
+      spriteID: 696c3eb7eefde9dd0800000000000000
+      internalID: -2477296529633458538
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stamp_0: 5866281921551675546
+      Eddie.sad_0: -2477296529633458538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

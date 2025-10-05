@@ -1,0 +1,26 @@
+{
+    "Name": "Layla",
+    "DOB": "1997.9.24",
+    "DOD": "2025.10.4",
+    "Work": "Princess",
+    "Introduction": "Layla is the princess of a small country and loved it ever since she was born. Layla loves to dress up and is very conscious about her appearance.",
+    "EvilList": [
+      {
+        "title": "Bathing with milk every day.",
+        "explain": "Who are you to ask me these questions?"
+      },
+      {
+        "title": "Slapped the neighboring princess across the face in public.",
+        "explain": "That stupid woman actually said I had plastic surgery."
+      },
+      {
+        "title": "Yelling at the servants.",
+        "explain": "They should’ve done their job properly."
+      }
+    ],
+    "DeathReason": "Blotched liposuction surgery.",
+    "FinalDecision": false,
+    "EndingHeaven": "Why can you decide where I go, even though your decision isn’t wrong.",
+    "EndingHall": "I WILL HAVE YOU EXECUTED!!!!!"
+  }
+  

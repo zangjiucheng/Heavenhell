@@ -97,9 +97,6 @@ public class ReportDecisionButton : MonoBehaviour
         if (isHeavenMode)
         {
             Debug.Log($"[{gameObject.name}] Heaven button clicked!");
-            // Close the report UI (dispose)
-            Destroy(report);
-            report.GetComponent<ReportFiller>().DisposeReport();
             
             // Get character
             var characterObject = GameObject.Find("Character");
@@ -113,9 +110,6 @@ public class ReportDecisionButton : MonoBehaviour
         else
         {
             Debug.Log($"[{gameObject.name}] Hell button clicked!");
-            // Close the report UI (dispose)
-            Destroy(report);
-            report.GetComponent<ReportFiller>().DisposeReport();
             
             // Get character
             var characterObject = GameObject.Find("Character");
@@ -124,6 +118,29 @@ public class ReportDecisionButton : MonoBehaviour
             {
                 character.SetExpression(Expression.Sad);
                 character.SendToHell();
+            }
+        }
+
+        // Close the report UI (dispose)
+        if (report != null)
+        {
+            Destroy(report);
+            var reportFiller = report.GetComponent<ReportFiller>();
+            if (reportFiller != null)
+            {
+                reportFiller.DisposeReport();
+            }
+        }
+        
+        // Find and destroy all "Final Document" prefab instances in the scene
+        GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        foreach (GameObject obj in allObjects)
+        {
+            // Check if the object name contains "Final Document" (case-insensitive)
+            if (obj.name.Contains("Final Document") || obj.name.Contains("final document"))
+            {
+                Debug.Log($"Destroying Final Document instance: {obj.name}");
+                Destroy(obj);
             }
         }
     }

@@ -60,6 +60,10 @@ public class Character : MonoBehaviour
     [SerializeField]
     [Tooltip("Report button prefab to spawn when appear animation is finished")]
     private GameObject reportButtonPrefab;
+    
+    [SerializeField]
+    [Tooltip("Document button prefab to spawn when appear animation is finished")]
+    private GameObject documentButtonPrefab;
 
     [Header("Audio")] [SerializeField] [Tooltip("Audio source component for playing sounds")]
     private AudioSource audioSource;
@@ -74,7 +78,8 @@ public class Character : MonoBehaviour
     private AudioClip[] happyTalkSounds;
 
     private GameObject reportButtonInstance;
-
+    private GameObject documentButtonInstance;
+    
     // Public properties to access expressions
     public Sprite NormalExpression => normalExpression;
     public Sprite HappyExpression => happyExpression;
@@ -298,11 +303,24 @@ public class Character : MonoBehaviour
 
     private void SpawnReportButton()
     {
-        if (reportButtonPrefab != null && !hasSpawnedReportButton)
+        if (!hasSpawnedReportButton)
         {
             // Instantiate the report button prefab
-            reportButtonInstance = Instantiate(reportButtonPrefab, transform.position, Quaternion.identity);
-            reportButtonInstance.transform.rotation = Quaternion.Euler(33.6f, 2.16f, -375f);
+            if (reportButtonPrefab != null)
+            {
+                reportButtonInstance = Instantiate(reportButtonPrefab, transform.position, Quaternion.identity);
+                reportButtonInstance.transform.rotation = Quaternion.Euler(33.6f, 2.16f, -375f);
+                Debug.Log("Report button spawned");
+            }
+            
+            // Instantiate the document button prefab
+            if (documentButtonPrefab != null)
+            {
+                documentButtonInstance = Instantiate(documentButtonPrefab, transform.position, Quaternion.identity);
+                documentButtonInstance.transform.rotation = Quaternion.Euler(33.6f, 2.16f, -375f);
+                Debug.Log("Document button spawned");
+            }
+            
             hasSpawnedReportButton = true;
         }
     }

@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   report: {fileID: 5011249117057849431}
+  document: {fileID: 6606632199105350484, guid: 42a0251ea964d402e84b38f768e71d2a, type: 3}
   transitionSpeed: 10
   defaultScaleMultiplier: 0.8
   defaultAlpha: 0.15
@@ -1046,7 +1047,7 @@ GameObject:
   - component: {fileID: 4313980665816173979}
   m_Layer: 0
   m_Name: Character Report
-  m_TagString: Untagged
+  m_TagString: Report
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1544,6 +1545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   report: {fileID: 5011249117057849431}
+  document: {fileID: 6606632199105350484, guid: 42a0251ea964d402e84b38f768e71d2a, type: 3}
   transitionSpeed: 10
   defaultScaleMultiplier: 0.8
   defaultAlpha: 0.15

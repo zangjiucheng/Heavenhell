@@ -217,12 +217,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterProfileJson: {fileID: 4900000, guid: 42a052fe49b95489dbb0ba5269af97b0, type: 3}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 4639612896879240645}
   normalExpression: {fileID: 6217627203602717732, guid: e6f0b6a2375934b569fbe2101117ce60, type: 3}
   happyExpression: {fileID: 6786833580796481005, guid: 6d74fb4790ad0483e939f13fa53ef37e, type: 3}
   sadExpression: {fileID: -4943612818084335763, guid: 2f289c23b23314d959b017459813feb9, type: 3}
   fearExpression: {fileID: 8632148470543002611, guid: 73bf015d543ae49d1b98c161c037d1e3, type: 3}
   reportButtonPrefab: {fileID: 8444316985564014578, guid: 19b5445b354ce40869c1d37e0507577b, type: 3}
+  documentButtonPrefab: {fileID: 6606632199105350484, guid: 42a0251ea964d402e84b38f768e71d2a, type: 3}
   audioSource: {fileID: 2397576790194475906}
   sadTalkSounds:
   - {fileID: 8300000, guid: ee373d93b86b4cc41b93198f092cb260, type: 3}

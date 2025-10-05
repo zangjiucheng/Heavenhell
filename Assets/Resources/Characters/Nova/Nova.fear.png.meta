@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d3b238c7661a84eeb8ffaae72f6e8fd4
+guid: e8ccfd0c486c04650b4e4c40ebf219d0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5541163116986070596
-    second: ChatGPT Image Oct 3, 2025, 03_35_10 PM_0
+      213: 5617027502987016590
+    second: Nova.fear_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChatGPT Image Oct 3, 2025, 03_35_10 PM_0
+      name: Nova.fear_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1536
-        height: 1024
+        width: 1024
+        height: 1536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb98c81e085d913b0800000000000000
-      internalID: -5541163116986070596
+      spriteID: e89f321f0c0b3fd40800000000000000
+      internalID: 5617027502987016590
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ChatGPT Image Oct 3, 2025, 03_35_10 PM_0: -5541163116986070596
+      Nova.fear_0: 5617027502987016590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
