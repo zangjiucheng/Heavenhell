@@ -237,3 +237,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eaa1966adcf77c644ae9b6f2b409661e, type: 3}
   - {fileID: 8300000, guid: 8e30d76c763bfaf40af041140ab1bbce, type: 3}
   - {fileID: 8300000, guid: d7301f8bfe300fc4191941eb3797abdd, type: 3}
+  sendToHeavenSound: {fileID: 8300000, guid: 252ab18ab23744f808d97d163d4660da, type: 3}
+  sendToHellSound: {fileID: 8300000, guid: 252ab18ab23744f808d97d163d4660da, type: 3}

@@ -77,6 +77,12 @@ public class Character : MonoBehaviour
     [SerializeField] [Tooltip("Happy talk sound effects")]
     private AudioClip[] happyTalkSounds;
 
+    [SerializeField] [Tooltip("Sound effect when sent to Heaven")]
+    private AudioClip sendToHeavenSound;
+    
+    [SerializeField] [Tooltip("Sound effect when sent to Hell")]
+    private AudioClip sendToHellSound;
+
     private GameObject reportButtonInstance;
     private GameObject documentButtonInstance;
     
@@ -418,6 +424,21 @@ public class Character : MonoBehaviour
 
     public void SendToHell()
     {
+        // Play hell sound effect
+        if (sendToHellSound != null)
+        {
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
+            
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(sendToHellSound);
+                Debug.Log("Playing Send to Hell sound effect");
+            }
+        }
+        
         // Add Disposer component to character
         var disposer = gameObject.AddComponent<CharacterDisposer>();
         disposer.targetPosition = new Vector2(5.0f, 1.2f);
@@ -444,6 +465,21 @@ public class Character : MonoBehaviour
     
     public void SendToHeaven()
     {
+        // Play heaven sound effect
+        if (sendToHeavenSound != null)
+        {
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
+            
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(sendToHeavenSound);
+                Debug.Log("Playing Send to Heaven sound effect");
+            }
+        }
+        
         // Add Disposer component to character
         var disposer = gameObject.AddComponent<CharacterDisposer>();
         disposer.targetPosition = new Vector2(-5.0f, 1.2f);
